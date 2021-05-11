@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/estilos.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
 </head>
 <body>
+
 <!-- BOTON DE INICIO -->
-<img class="portada" src="../img/portada.png" alt="">
+<img class="portada" src="/img/portada.png" alt="">
 <div class="principal">
     <div class="contenedor">
         <div class="contenido">
@@ -19,7 +20,7 @@
                 <img class="logo" src="../img/logo-escudo.png" alt="">
             </div>
             <div class="boton">
-                <a href="../views/iniciar-sesion.blade.php">Empezar</a>
+                <a href="/iniciar-registrarse">Empezar</a>
             </div>
         </div>
         <div class="contenido">
@@ -34,14 +35,14 @@
             </div>
             <div class="caja">
                 <div class="imgbanner">
-                    <img class="banner" src="../img/app.png" alt="">
+                    <img class="banner" src="/img/app.png" alt="">
                 </div>
             </div>
         </div>
         <div class="contenido">
             <div class="caja">
                 <div class="imgbanner">
-                    <img class="banner" src="../img/login.png" alt="">
+                    <img class="banner" src="/img/login.png" alt="">
                 </div>
             </div>
             <div class="caja">
@@ -71,35 +72,35 @@
             <div class="colum">
                 <h2 class="sub">Información Contactos</h2><hr>
                 <div class="row">
-                    <img src="../img/house.png">
+                    <img src="/img/house.png">
                     <p class="lab">Huánuco,
                         Crespo Castillo # 494</p>
                 </div>
                 <div class="row">
-                    <img src="../img/smartphone.png">
+                    <img src="/img/smartphone.png">
                     <p class="lab">+1-829-395-2064</p>
                 </div>
                 <div class="row">
-                    <img src="../img/contact.png">
+                    <img src="/img/contact.png">
                     <p class="lab">MHuasco@gmail.com</p>
                 </div>
             </div>
             <div class="colum">
                 <h2 class="sub">Redes Sociales</h2><hr>
                 <div class="row">
-                    <img src="../img/facebook.png">
+                    <img src="/img/facebook.png">
                     <p class="lab">Siguenos en Facebook</p>
                 </div>
                 <div class="row">
-                    <img src="../img/twitter.png">
+                    <img src="/img/twitter.png">
                     <p class="lab">Siguenos en Twitter</p>
                 </div>
                 <div class="row">
-                    <img src="../img/instagram.png">
+                    <img src="/img/instagram.png">
                     <p class="lab">Siguenos en Instagram</p>
                 </div>
                 <div class="row">
-                    <img src="../img/google.png">
+                    <img src="/img/google.png">
                     <p class="lab">Siguenos en Google Plus</p>
                 </div>
             </div>

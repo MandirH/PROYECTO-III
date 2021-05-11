@@ -11,7 +11,7 @@ input[type=checkbox],
 }
 .menu{
     display:flex;
-    width: 294.12px;
+    width: 271.36px;
     margin: 20px auto;
     border-radius: 50px;
     list-style: none;
@@ -112,7 +112,21 @@ body{
     position: relative;
     padding: 0px 20px;
     width: 900px;
-    margin-top: -20px;
+    margin-top: 60px;
+}
+.contenedor_user{
+    overflow: hidden;
+    position: relative;
+    padding: 0px 20px;
+    width: 600px;
+    margin-top: 120px;
+}
+.contenedor_pub{
+    overflow: hidden;
+    position: relative;
+    padding: 0px 20px;
+    width: 600px;
+    margin-top: 120px;
 }
 .contenedor_error{
     overflow: hidden;
@@ -151,6 +165,17 @@ body{
     float: left;
     display: inline-block;
 }
+.caja_user{
+    width: 410px;
+    margin: auto;
+    padding: 20px;
+    display: block;
+}
+.caja_pub{
+    width: 100%;
+    padding: 20px;
+    display: inline-block;
+}
 .caja_error{
     width: 410px;
     margin: auto;
@@ -178,6 +203,13 @@ p{
 }
 .caja .p_perfil{
     font-size: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.30), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.caja_user .p_perfil{
+    font-size: 14px;
     margin-top: 10px;
     padding: 10px;
     border-radius: 10px;
@@ -300,7 +332,11 @@ footer{
     .contenedor{
         width: 600px;
     }
-    .caja{
+    .contenedor_prin, .contenedor_user, .contenedor_pub{
+        width: auto;
+        display: grid;
+    }
+    .caja, .caja_user, .caja_pub{
         width: 100%;
     }
     .caja_error{
@@ -381,6 +417,10 @@ footer{
     }
     label span{
         padding: 20px;
+        display: block;
+    }
+    label .error_span{
+        padding: 0px;
         display: block;
     }
     button{

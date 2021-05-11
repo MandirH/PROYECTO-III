@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\PublicacionController;
+use App\Models\Usuario;
+use App\Models\Publicacion;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +22,10 @@ Route::get('/', function () {
 });
 */
 
+
+/*MOSTRAR INICIO FORMA VISTA
+Route::view('/Principal', 'bienvenido');
+  MOSTRAR FORMA DINAMICA
 Route::get('/', function () {
     return view('bienvenido');
 });
@@ -26,3 +34,25 @@ Route::get('/administrador', function (){
     $resultados = DB::select("select * from usuarios");
     dd($resultados);
 });
+*/
+
+Route::get('/', function () {
+    return view('bienvenido');
+});
+Route::get('/iniciar-registrarse', function () {
+    return view('iniciar-sesion');
+});
+/*
+Route::get('/iniciar-registrarse', function () {
+    return view('layout');
+});
+*/
+Route::view('/registrarse', 'iniciar-sesion');
+Route::post('/registrarse', [UsuarioController::class, "registrar"]);
+
+Route::view('/perfil', 'usuario-sesion');
+Route::post('/perfil-iniciado', [PublicacionController::class, "sesion"]);
+
+Route::get('/usuario', [UsuarioController::class, "mostrar"]);
+Route::get('/publicaciones', [PublicacionController::class, "mostrarPublicacion"]);
+Route::get('/usuario/{id}', [UsuarioController::class, "mostrarperfil"], ["id"=>"id"]);
