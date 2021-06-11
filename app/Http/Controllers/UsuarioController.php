@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
+use App\Models\Publicacion;
+use App\Models\Comentario;
+use App\Http\Controllers\PublicacionController;
+use App\Http\Controllers\ComentarioController;
+
+use \Illuminate\Support\Facades\Validator;
+use Auth;
 
 class UsuarioController extends Controller
 {
@@ -12,25 +19,25 @@ class UsuarioController extends Controller
     {
         $data->validate(
             [
-                'nombre'=>'required | min:3 | max:40 | alpha',
-                'apellido'=>'required | min:3 | max:40 | alpha',
+                'nombre'=>'required | min:3 | max:100 | alpha',
+                'apellido'=>'required | min:3 | max:100 | alpha',
                 'sexo'=>'required',
-                'DNI'=>'required | size:8',
-                'telefono'=>'required | size:9',
-                'email'=>'required | min:6 | max:40',
-                'password'=>'required | min:8 | max:40',
-                'confirm_password'=>'required | min:8 | max:40',
+                'pais'=>'required | min:3 | max:100 | alpha',
+                'nacionalidad'=>'required | min:3 | max:100 | alpha',
+                'email'=>'required | min:6 | max:100',
+                'password_user'=>'required | min:8 | max:100',
+                'confirm_password'=>'required | min:8 | max:100',
             ]
         );
-        if($data["password"]==$data["confirm_password"]){
+        if($data["password_user"]==$data["confirm_password"]){
             $usuario = new Usuario();
             $usuario->nom_user = $data["nombre"];
             $usuario->ape_user = $data["apellido"];
             $usuario->sex_user = $data["sexo"];
-            $usuario->DNI_user = $data["DNI"];
-            $usuario->telf_user = $data["telefono"];
+            $usuario->pais_user = $data["pais"];
+            $usuario->nacionalidad_user = $data["nacionalidad"];
             $usuario->email_user = $data["email"];
-            $usuario->contra_user = $data["password"];
+            $usuario->password = bcrypt($data["password_user"]);
             $usuario->cargo_user = "Usuario";
             $usuario->estado_user = "Activo";
             $usuario->save();
@@ -43,15 +50,49 @@ class UsuarioController extends Controller
 
     }
     public function mostrar(){
+        $id = session('id');
         $resultado = Usuario::get();
-        return view("usuarios", ["resultado"=>$resultado]);
+        $resultadoPub = Publicacion::get();
+        $id_usuario=Usuario::where("id_user", $id)->get();
+        return view("usuarios", ["resultado"=>$resultado, "id_usuario"=>$id_usuario], ["resultadoPub"=>$resultadoPub]);
     }
     public function mostrarperfil(string $id){
+        $id_user = session('id');
+        $usuarios = Usuario::get();
+        $resultadoCom = Comentario::get();
         $resultado = Usuario::where("id_user", $id)->get();
-        return view("perfil-externo", ["resultado"=>$resultado]);
+        $resultadoPub = Publicacion::where("usuarios_id_user", $id)->get();
+        $id_usuario=Usuario::where("id_user", $id_user)->get();
+        return view("perfil-externo", ["resultado"=>$resultado, "id_usuario"=>$id_usuario], ["resultadoPub"=>$resultadoPub, "resultadoCom" => $resultadoCom,  "usuarios"=>$usuarios]);
     }
     public function sesion(){
-        $resultado = Usuario::where("id_user",1)->get();
-        return view("usuario-sesion", ["resultado"=>$resultado]);
+        $credenciales = $this->Validate(request(),
+            [
+                'email_user' => 'required | min:6 | max:100',
+                'password' => 'required | min:8 | max:100',
+            ]);
+        if(Auth::attempt($credenciales))
+        {
+            $id = Usuario::select("id_user")->where("email_user",$credenciales['email_user'])->get();
+            foreach ($id as $use){
+                session(['id' => $use['id_user']]);
+                return redirect()->route('muro');
+            }
+        }
+        else
+        {
+            return back()
+                ->withErrors(['email_user'=>trans('auth.failed')])
+                ->withInput(request(['email_user']));
+        }
+    }
+    public function traersesion(){
+        $id = session('id');
+        $resultadoCom = Comentario::get();
+        $resultado = Usuario::where("id_user",$id)->get();
+        $usuarios = Usuario::get();
+        $resultadoPub = Publicacion::where("usuarios_id_user",$id)->get();
+        $id_usuario=Usuario::where("id_user", $id)->get();
+        return view("usuario-sesion", ["resultado"=>$resultado, "id_usuario"=>$id_usuario], ["resultadoPub"=>$resultadoPub, "resultadoCom" => $resultadoCom, "usuarios"=>$usuarios]);
     }
 }

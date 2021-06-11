@@ -7,14 +7,15 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/estilos.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 </head>
 <body>
 <div class="header">
     <label for="show-menu" class="show-menu"><div class="icon-menu"></div></label>
     <input type="checkbox" id="show-menu">
     <ul class="menu">
-        <li><a href="/usuario">Inicio</a></li>
+        <li><a href="/usuario">Usuarios</a></li>
         <li><a href="/publicaciones">Publicaciones</a></li>
         <li><a href="/perfil">Perfil</a></li>
     </ul>
@@ -36,5 +37,7 @@
         </div>
     </div>
 </footer>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/archivo.js"></script>
 </body>
 </html>

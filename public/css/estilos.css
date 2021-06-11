@@ -11,7 +11,7 @@ input[type=checkbox],
 }
 .menu{
     display:flex;
-    width: 271.36px;
+    width: 294.03px;
     margin: 20px auto;
     border-radius: 50px;
     list-style: none;
@@ -128,6 +128,12 @@ body{
     width: 600px;
     margin-top: 120px;
 }
+.contenedor_pub_user{
+    overflow: hidden;
+    position: relative;
+    padding: 0px 20px;
+    width: 900px;
+}
 .contenedor_error{
     overflow: hidden;
     position: relative;
@@ -159,6 +165,22 @@ body{
     background: #fff;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
+.contenido_hidden{
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+.contenido_hidden_sesion{
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
 .caja{
     width: 410px;
     padding: 20px;
@@ -176,20 +198,80 @@ body{
     padding: 20px;
     display: inline-block;
 }
+.caja_pub_img{
+    width: 100%;
+    padding: 0 20px 20px 20px;
+    display: inline-block;
+}
+.caja_grande{
+    width: 410px;
+    padding: 20px;
+    display: inline-block;
+}
+.caja_grande_flotante{
+    width: 410px;
+    padding: 20px;
+    display: inline-block;
+    float: right;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+.caja_grande_flotante_pub{
+    width: 100%;
+    padding: 20px;
+    display: inline-block;
+    float: right;
+    padding-top: 0;
+}
 .caja_error{
     width: 410px;
     margin: auto;
     padding: 20px;
 }
+.caja_com{
+    width: 300px;
+    margin: auto;
+    display: contents;
+    background: #000;
+}
+.com{
+    width: 100%;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #e698d7;
+    box-shadow: 0 9px 8px rgba(0, 0, 0, 0.30), 0 5px 2px rgba(0, 0, 0, 0.22);
+    padding: 10px;
+    background: #fff;
+}
 hr{
     height: 6px;
     background: linear-gradient(#a78aff, #ff6d6d);
+}
+.hr_pub{
+    height: 0;
+    background: #fff;
+    border-width: 0;
 }
 .sub, .sub_error{
     width: 100%;
     font-size: 30px;
     text-align: center;
     margin-bottom: 20px;
+}
+.sub_pub_user{
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 50px;
+    background: #000;
+}
+.sub_pub_user a{
+    color: #fff;
+    text-decoration: none;
+}
+.sub_pub_user a:hover{
+    text-decoration: underline;
 }
 p{
     text-align: justify;
@@ -203,15 +285,21 @@ p{
 }
 .caja .p_perfil{
     font-size: 20px;
-    margin-top: 10px;
+    margin-top: 0;
+    display: inline-block;
+    width: 80%;
+    background: #86687a;
+    color: #fff;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.30), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 .caja_user .p_perfil{
+    width: 80%;
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: 0;
     padding: 10px;
+    background: #690052;
+    color: #fff;
     border-radius: 10px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.30), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
@@ -256,6 +344,9 @@ p{
 }
 .banner{
     width: 320px;
+}
+.img_pub{
+    width: 100%;
 }
 
 /*FOOTER*/
@@ -328,16 +419,51 @@ footer{
     text-decoration: none;
     color: #C7C7C7;
 }
+.time{
+    font-size: 12px;
+}
+.com_user{
+    font-size: 14px;
+}
+.content_com{
+    display: block;
+}
+.content_com_fecha{
+    display: block;
+    width: 100%;
+}
+.div_img{
+    display: flex;
+    padding: 10px 10px 10px 0px;
+    margin-top: 10px;
+    background: #000;
+    border-radius: 10px;
+}
+.icon_perfil{
+    margin: auto;
+    display: inline-block;
+    width: 27px;
+}
+
 @media screen and (max-width: 920px){
     .contenedor{
         width: 600px;
     }
-    .contenedor_prin, .contenedor_user, .contenedor_pub{
+    .contenedor_prin, .contenedor_user, .contenedor_pub, .contenedor_pub_user{
         width: auto;
         display: grid;
     }
-    .caja, .caja_user, .caja_pub{
+    .caja, .caja_user, .caja_pub, .caja_grande{
         width: 100%;
+    }
+    .caja_pub_img{
+        width: 100%;
+        padding: 0 20px;
+    }
+    .caja_grande_flotante{
+        padding-top: 0;
+        width: 100%;
+        box-shadow: none;
     }
     .caja_error{
         width: 100%;
@@ -352,6 +478,11 @@ footer{
     }
     .colum{
         width: 100%;
+    }
+    .hr_pub{
+        height: 6px;
+        background: linear-gradient(#a78aff, #ff6d6d);
+        border-width: 1px;
     }
     h1{
         font-size: 46px;
@@ -371,12 +502,17 @@ footer{
     .copyright a{
         font-size: 14px;
     }
+    .spanCom{
+        display: block;
+        text-align: center;
+        text-shadow: 0 5px 5px rgba(255, 0, 0, 0.30), 0 5px 6px rgba(255, 0, 0, 0.22);
+    }
 }
 @media screen and (max-width: 430px){
     .fech{
         width: 100%;
     }
-    .fech h3{
+    .fech h3, h3{
         font-size: 14px;
     }
     .logdiv{

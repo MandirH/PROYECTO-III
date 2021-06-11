@@ -13,6 +13,7 @@ return [
     |
     */
 
+
     'defaults' => [
         'guard' => 'web',
         'passwords' => 'users',
@@ -35,6 +36,7 @@ return [
     |
     */
 
+
     'guards' => [
         'web' => [
             'driver' => 'session',
@@ -47,6 +49,7 @@ return [
             'hash' => false,
         ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -65,10 +68,25 @@ return [
     |
     */
 
+    /*-----------------ORIGINAL-----------------
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
+    ],
+    ----------------------------------------*/
+
+
+    'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Usuario::class,
         ],
 
         // 'users' => [
@@ -91,6 +109,7 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     */
+
 
     'passwords' => [
         'users' => [

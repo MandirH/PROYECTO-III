@@ -49,17 +49,41 @@ label{
     margin: 25px auto 0;
     text-align: center;
 }
+.coment{
+    display: block;
+    width: 100%;
+    overflow: auto;
+    max-height: 450px;
+    margin: 25px auto 0;
+    text-align: center;
+}
 label span{
     font-size: 14px;
     font-weight: 600;
     color: #505f75;
     text-transform: uppercase;
 }
+label .spanCom{
+    font-size: 14px;
+    font-weight: 600;
+    color: #505f75;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    display: block;
+}
 .aviso{
     display: block;
     width: 260px;
     color: #f00;
     margin: 25px auto 0;
+    text-align: center;
+    text-shadow: 0 5px 5px rgba(255, 0, 0, 0.30), 0 5px 6px rgba(255, 0, 0, 0.22);
+}
+.aviso_pub{
+    display: block;
+    width: 260px;
+    color: #f00;
+    margin: auto;
     text-align: center;
     text-shadow: 0 5px 5px rgba(255, 0, 0, 0.30), 0 5px 6px rgba(255, 0, 0, 0.22);
 }
@@ -94,6 +118,99 @@ button{
     font-size: 15px;
     cursor: pointer;
 }
+.boton_com{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 36px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+    background: -webkit-linear-gradient(left, #b34fff, #ff2c4f);
+}
+
+/*FILE*/
+
+:root {
+    --color-shadow-btn-active: rgba(0, 0, 0, .3);
+    --color-border-field: rgb(200, 200, 200);
+}
+.input-file {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.input-file__input {
+    display: none;
+}
+
+.input-file__btn {
+    padding: 6px 12px;
+    border-radius: 17px;
+}
+.input-file__field{
+    height: 34px;
+    padding: 6px 12px;
+    border-radius: 17px;
+}
+
+.input-file__btn {
+    background: -webkit-linear-gradient(left, #b34fff, #ff2c4f);
+    color: white;
+    text-align: center;
+    line-height: 22px;
+    cursor: pointer;
+}
+
+.input-file__btn:hover {
+    background: -webkit-linear-gradient(left, #5f00a7, #b7001e);
+}
+
+.input-file__btn:active {
+    -webkit-box-shadow: 0 3px 5px var(--color-shadow-btn-active) inset;
+    box-shadow: 0 3px 5px var(--color-shadow-btn-active) inset;
+}
+
+.input-file__field {
+    border: 1px solid var(--color-border-field);
+    margin: auto;
+    line-height: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden
+}
+
+.input-file--reverse .input-file__field {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+    margin-right: 0;
+}
+
+@media screen and (max-width: 575px) {
+    .input-file__field {
+        width: 100%;
+    }
+    .input-file--reverse {
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+    }
+}
+
+/*END FILE*/
+
 .boton_b{
     margin: auto;
     margin-top: 20px;
@@ -128,6 +245,16 @@ button{
     background: -webkit-linear-gradient(left, #b34fff, #ff2c4f);
 }
 .submit:hover{
+    background: -webkit-linear-gradient(left, #5f00a7, #b7001e);
+}
+.submit_com{
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+    background: -webkit-linear-gradient(left, #b34fff, #ff2c4f);
+}
+.submit_com:hover{
     background: -webkit-linear-gradient(left, #5f00a7, #b7001e);
 }
 .forgot-pass{
