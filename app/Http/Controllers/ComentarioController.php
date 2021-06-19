@@ -22,6 +22,7 @@ class ComentarioController extends Controller
         $comentario->fecha_com = $data["fecha"];
         $comentario->hora_com = $data["hora"];
         $comentario->texto_com = $data["com"];
+        $comentario->estado_com = "Activo";
         $comentario->pub_id_com = $data["id"];
         $comentario->user_id_com = $data["id_usuario"];
         $comentario->save();
@@ -31,5 +32,23 @@ class ComentarioController extends Controller
         $id_usuario = Usuario::where("id_user", $id)->get();
         return view("publicacion-sesion", ["resultadoPub" => $resultadoPub, "resultadoCom" => $resultadoCom], ["resultado" => $resultado, "id_usuario" => $id_usuario]);
     }
-
+    public function admicomentario(){
+        $id = session('id');
+        $resultado = Usuario::get();
+        $resultadoCom = Comentario::get();
+        $id_usuario=Usuario::where("id_user", $id)->get();
+        return view("adm-comentarios", ["resultado"=>$resultado, "id_usuario"=>$id_usuario], ["resultadoCom"=>$resultadoCom]);
+    }
+    public function desactivar(Request $tabla){
+        $comentario = Comentario::find($tabla->id_com);
+        $comentario->estado_com = 'Inactivo';
+        $comentario->save();
+        return redirect("/admin-comentarios");
+    }
+    public function activar(Request $tabla){
+        $comentario = Comentario::find($tabla->id_com);
+        $comentario->estado_com = 'Activo';
+        $comentario->save();
+        return redirect("/admin-comentarios");
+    }
 }

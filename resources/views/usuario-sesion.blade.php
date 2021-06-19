@@ -23,88 +23,150 @@
                         <p class="p_perfil">Sexo: {{$usuario["sex_user"]}}</p>
                     </div>
                     <?php $cont = 0 ?>
-                    @foreach($resultadoPub as $publicacion)
-                        <?php $cont++ ?>
-                    @endforeach
+                    @if($usuario["cargo_user"]=="Usuario")
+                        @foreach($resultadoPub as $publicacion)
+                            <?php $cont++ ?>
+                        @endforeach
+                    @else
+                        @foreach($resultadoRe as $resultado)
+                            <?php $cont++ ?>
+                        @endforeach
+                    @endif
                     <div class="div_img">
                         <img src="/img/publicacion_icon.png" class="icon_perfil">
-                        <p class="p_perfil">Publicaciones: {{$cont}} </p>
+                        <p class="p_perfil">
+                            @if($usuario["cargo_user"]=="Usuario")
+                                Publicaciones: {{$cont}}
+                            @else
+                                Reportes: {{$cont}}
+                            @endif
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="contenido">
-                <form action="/perfil" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="expand">
-                        <div class="sub_expand" onclick="openTab('b1');">
-                            <h2 class="h2_expand">Crear Publicación</h2>
+            @if($usuario["cargo_user"]=="Usuario")
+                <div class="contenido">
+                    <form action="/perfil" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="expand">
+                            <div class="sub_expand" onclick="openTab('b1');">
+                                <h2 class="h2_expand">Crear Publicación</h2>
+                            </div>
                         </div>
-                    </div>
-                    <div id="b1" class="containerTab" style="display:none;">
-                        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-                        <label>
-                            <input type="hidden" name="fecha" value="<?php date_default_timezone_set('America/Lima');  echo date('d-m-Y');?>">
-                        </label>
-                        <label>
-                            <input type="hidden" name="hora" value="<?php  echo date('H:i');?>">
-                        </label>
-                        <label>
-                            <span>PAÍS</span>
-                            <input type="text" name="pais">
-                            <label class="aviso">
-                                <span class="error_span">{{$errors->first('pais')}}</span>
+                        <div id="b1" class="containerTab" style="display:none;">
+                            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                            <label>
+                                <input type="hidden" name="fecha" value="<?php date_default_timezone_set('America/Lima');  echo date('d-m-Y');?>">
                             </label>
-                        </label>
-                        <label>
-                            <span>REGIÓN</span>
-                            <input type="text" name="region">
-                            <label class="aviso">
-                                <span class="error_span">{{$errors->first('region')}}</span>
+                            <label>
+                                <input type="hidden" name="hora" value="<?php  echo date('H:i');?>">
                             </label>
-                        </label>
-                        <label>
-                            <span>DIRECCIÓN</span>
-                            <input type="text" name="direccion">
-                            <label class="aviso">
-                                <span class="error_span">{{$errors->first('direccion')}}</span>
-                            </label>
-                        </label>
-                        <label>
-                            <span>TIPO</span>
-                            <input type="text" name="tipo">
-                            <label class="aviso">
-                                <span class="error_span">{{$errors->first('tipo')}}</span>
-                            </label>
-                        </label>
-                        <label>
-                            <span>TEXTO</span>
-                            <input type="text" name="texto">
-                            <label class="aviso">
-                                <span class="error_span">{{$errors->first('texto')}}</span>
-                                @if(!empty($mensaje))
-                                    <span  class="error_span" style="color: #84a501">{{$mensaje}}</span>
-                                @endif
-                            </label>
-                            <input type="hidden" name="usuarios_id_user" value="{{$usuario["id_user"]}}">
-                        </label>
-                        <label>
-                            <span>IMAGEN (opcional)</span>
-                            <div class="input-file input-file--reverse">
-                                <label for="" class="input-file__field"></label>
-                                <input type="file" id="file" class="input-file__input" name="img">
-                                <label for="file" class="input-file__btn">Seleccionar archivo</label>
+                            <label>
+                                <span>PAÍS</span>
+                                <input type="text" name="pais">
                                 <label class="aviso">
-                                    <span class="error_span">{{$errors->first('img')}}</span>
+                                    <span class="error_span">{{$errors->first('pais')}}</span>
+                                </label>
+                            </label>
+                            <label>
+                                <span>REGIÓN</span>
+                                <input type="text" name="region">
+                                <label class="aviso">
+                                    <span class="error_span">{{$errors->first('region')}}</span>
+                                </label>
+                            </label>
+                            <label>
+                                <span>DIRECCIÓN</span>
+                                <input type="text" name="direccion">
+                                <label class="aviso">
+                                    <span class="error_span">{{$errors->first('direccion')}}</span>
+                                </label>
+                            </label>
+                            <label>
+                                <span>TIPO</span>
+                                <input type="text" name="tipo">
+                                <label class="aviso">
+                                    <span class="error_span">{{$errors->first('tipo')}}</span>
+                                </label>
+                            </label>
+                            <label>
+                                <span>TEXTO</span>
+                                <input type="text" name="texto">
+                                <label class="aviso">
+                                    <span class="error_span">{{$errors->first('texto')}}</span>
                                     @if(!empty($mensaje))
-                                    <span class="error_span">{{$mensaje}}</span>
+                                        <span  class="error_span" style="color: #84a501">{{$mensaje}}</span>
                                     @endif
                                 </label>
-                            </div>
-                        </label>
-                        <button type="submit" class="submit" name="confirmar_pub">Crear</button>
+                                <input type="hidden" name="usuarios_id_user" value="{{$usuario["id_user"]}}">
+                            </label>
+                            <label>
+                                <span>IMAGEN (opcional)</span>
+                                <div class="input-file input-file--reverse">
+                                    <label for="" class="input-file__field"></label>
+                                    <input type="file" id="file" class="input-file__input" name="img">
+                                    <label for="file" class="input-file__btn">Seleccionar archivo</label>
+                                    <label class="aviso">
+                                        <span class="error_span">{{$errors->first('img')}}</span>
+                                        @if(!empty($mensaje))
+                                            <span class="error_span">{{$mensaje}}</span>
+                                        @endif
+                                    </label>
+                                </div>
+                            </label>
+                            <button type="submit" class="submit" name="confirmar_pub">Crear</button>
+                        </div>
+                    </form>
+                </div>
+            @else
+                @if(!empty($resultadoRe))
+                    <div class="contenido-admin-pub">
+                        <h2 class="sub">Reportes</h2><hr class="hr_re">
+                        <table class='tabla'>
+                            <tr class='tabla_prin'>
+                                <th class='tabla_cuadro'>Nro</th>
+                                <th class='tabla_cuadro'>Usuario</th>
+                                <th class='tabla_cuadro'>Autor</th>
+                                <th class='tabla_cuadro'>Publicacion</th>
+                                <th class='tabla_cuadro'>Comentario</th>
+                                <th class='tabla_cuadro'>Contenido</th>
+                                <th class='tabla_cuadro'>&nbsp;</th>
+                            </tr>
+                            <?php $contador = 0?>
+                            @foreach($resultadoRe as $reporte)
+                                <?php $contador++ ?>
+                                <tr>
+                                    <td class='tabla_celda'>{{$contador}}</td>
+                                    @foreach($resultado as $usuario)
+                                        @if($usuario['id_user']==$reporte['id_usuario_re'])
+                                            <td class='tabla_celda'>{{$usuario['nom_user']}}</td>
+                                        @endif
+                                    @endforeach
+                                    <td class='tabla_celda'>{{$reporte['autor_re']}}</td>
+                                    <td class='tabla_celda'>{{$reporte['publicacion_re']}}</td>
+                                    <td class='tabla_celda_text'>{{$reporte['comentario_re']}}</td>
+                                    <td class='tabla_celda_text'>{{$reporte['texto_re']}}</td>
+                                    <td class='tabla_celda-adm'>
+                                        @if($comentario['estado_com']=='Activo')
+                                            <form method='post' action='/admin-comentarios-desactivar'>
+                                                @csrf
+                                                <input type='hidden' name='id_com' value='{{$comentario['id_com']}}'>
+                                                <input type='submit' name='submit' class="boton-adm-a" value='Activo'>
+                                            </form>
+                                        @else
+                                            <form method='post' action='/admin-comentarios-activar'>
+                                                @csrf
+                                                <input type='hidden' name='id_com' value='{{$comentario['id_com']}}'>
+                                                <input type='submit' name='submit' class="boton-adm-i" value='Inactivo'>
+                                            </form>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
                     </div>
-                </form>
-            </div>
+                @endif
+            @endif
         </div>
         <div class="contenedor_pub_user">
             <?php $resultadoPub = collect($resultadoPub)->sortBy('count')->reverse()->toArray(); ?>

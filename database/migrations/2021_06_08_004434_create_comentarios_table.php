@@ -18,6 +18,7 @@ class CreateComentariosTable extends Migration
             $table->string("fecha_com", 20);
             $table->string("hora_com", 45);
             $table->string("texto_com",1000);
+            $table->string("estado_com",45);
         });
         Schema::table('comentarios', function (Blueprint $table) {
             $table->unsignedBigInteger("pub_id_com");

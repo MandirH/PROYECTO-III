@@ -82,4 +82,23 @@ class PublicacionController extends Controller
         $id_usuario=Usuario::where("id_user", $id)->get();
         return view("publicacion-sesion", ["resultadoPub"=>$resultadoPub, "resultadoCom"=>$resultadoCom], ["resultado"=>$resultado, "id_usuario"=>$id_usuario]);
     }
+    public function admipublicacion(){
+        $id = session('id');
+        $resultado = Usuario::get();
+        $resultadoPub = Publicacion::get();
+        $id_usuario=Usuario::where("id_user", $id)->get();
+        return view("adm-publicaciones", ["resultado"=>$resultado, "id_usuario"=>$id_usuario], ["resultadoPub"=>$resultadoPub]);
+    }
+    public function desactivar(Request $tabla){
+        $publicacion = Publicacion::find($tabla->id_pub);
+        $publicacion->estado_pub = 'Inactivo';
+        $publicacion->save();
+        return redirect("/admin-publicaciones");
+    }
+    public function activar(Request $tabla){
+        $publicacion = Publicacion::find($tabla->id_pub);
+        $publicacion->estado_pub = 'Activo';
+        $publicacion->save();
+        return redirect("/admin-publicaciones");
+    }
 }

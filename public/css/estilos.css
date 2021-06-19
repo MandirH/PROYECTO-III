@@ -18,7 +18,20 @@ input[type=checkbox],
     background: #fff;
     text-align: center;
 }
+.menu_ad{
+    display:flex;
+    width: 413.23px;
+    margin: 20px auto;
+    border-radius: 50px;
+    list-style: none;
+    background: #fff;
+    text-align: center;
+}
 .menu li{
+    display: inline-block;
+    font-size: 14px;
+}
+.menu_ad li{
     display: inline-block;
     font-size: 14px;
 }
@@ -30,7 +43,20 @@ input[type=checkbox],
     text-align: center;
     transition: .34s;
 }
+.menu_ad li a{
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    transition: .34s;
+}
 .menu li a:hover{
+    background: #000;
+    border-radius: 50px;
+    color: #fff;
+}
+.menu_ad li a:hover{
     background: #000;
     border-radius: 50px;
     color: #fff;
@@ -58,6 +84,18 @@ input[type=checkbox],
         top: -244px;
         transition: all .5s ease-out;
     }
+    .menu_ad{
+        display: block;
+        position: fixed;
+        border-top: none;
+        border-radius: 0;
+        width: 100%;
+        z-index: -1;
+        background: #fff0;
+        margin: 0;
+        top: -254px;
+        transition: all .5s ease-out;
+    }
     .show-menu{
         display:flex;
         cursor:pointer;
@@ -69,7 +107,17 @@ input[type=checkbox],
     input[type=checkbox]:checked ~ .menu{
         top: 48px;
     }
+    input[type=checkbox]:checked ~ .menu_ad{
+        top: 48px;
+    }
     .menu li{
+        background: #fff;
+        margin: 10px 0;
+        display: block;
+        border-bottom: none;
+        float: none;
+    }
+    .menu_ad li{
         background: #fff;
         margin: 10px 0;
         display: block;
@@ -121,6 +169,12 @@ body{
     width: 600px;
     margin-top: 120px;
 }
+.contenedor_adm{
+    overflow: hidden;
+    position: relative;
+    padding: 0px 20px;
+    margin-top: 120px;
+}
 .contenedor_pub{
     overflow: hidden;
     position: relative;
@@ -161,6 +215,23 @@ body{
     overflow: hidden;
     position: relative;
     margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+.contenido-admin{
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+.contenido-admin-pub{
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    max-width: 900px;
     padding: 20px;
     background: #fff;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
@@ -244,6 +315,11 @@ body{
     background: #fff;
 }
 hr{
+    height: 6px;
+    background: linear-gradient(#a78aff, #ff6d6d);
+}
+.hr_re{
+    margin-bottom: 20px;
     height: 6px;
     background: linear-gradient(#a78aff, #ff6d6d);
 }
@@ -575,4 +651,80 @@ footer{
         font-size: 20px;
         padding: 10px;
     }
+}
+
+/*ADMINISTRADOR*/
+
+.tabla{
+    background: #511058;
+    color: #fff;
+    margin: auto;
+}
+.tabla_cuadro{
+    padding: 20px;
+}
+.tabla_celda{
+    padding: 10px;
+    background: #901169;
+    max-height: 80px;
+    overflow: auto;
+}
+.tabla_celda_text{
+    padding: 10px;
+    background: #901169;
+    max-height: 80px;
+    overflow: auto;
+    display: block;
+    height: 80px;
+}
+.tabla_celda-adm{
+    padding: 10px;
+    background: #901169;
+}
+.tabla_celda-adm:hover{
+    background: #000;
+}
+.volver{
+    padding: 20px;
+    width: 80px;
+    background: #901169;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+}
+.boton-adm{
+    border:none;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    background: #3a0013;
+    color: #fff;
+}
+.boton-adm-a{
+    border:none;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    background: #00a21b;
+    color: #fff;
+}
+.boton-adm-i{
+    border:none;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    background: #b90000;
+    color: #fff;
+}
+.user-admin-act{
+    display: block;
+    width: 100px;
+    margin-top: 5px;
+    font-size: 16px;
+    background: #6d6d6d42;
+    color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid rgba(109, 93, 93, 0.4);
+    text-align: left;
+    font-family: 'Nunito', sans-serif;
 }

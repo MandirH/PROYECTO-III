@@ -14,6 +14,7 @@ class Usuario extends Model implements AuthenticatableContract
     public $table = "usuarios";
     use HasFactory;
     public $timestamps = false;
+    protected $primaryKey = 'id_user';
 }
 
 /*-----ORIGINAL--------

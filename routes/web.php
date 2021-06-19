@@ -64,3 +64,23 @@ Route::post('/publicaciones', [ComentarioController::class, "registrarCom"]);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/*ADMINISTRADOR*/
+
+/*ADM USER*/
+Route::view('/admin-usuarios', 'adm-usuarios');
+Route::get('/admin-usuarios', [UsuarioController::class, "admiuser"]);
+Route::post('/admin-usuarios-activar', [UsuarioController::class, "activar"]);
+Route::post('/admin-usuarios-desactivar', [UsuarioController::class, "desactivar"]);
+
+/*ADM PUBLICACION*/
+Route::view('/admin-publicaciones', 'adm-publicaciones');
+Route::get('/admin-publicaciones', [PublicacionController::class, "admipublicacion"]);
+Route::post('/admin-publicaciones-activar', [PublicacionController::class, "activar"]);
+Route::post('/admin-publicaciones-desactivar', [PublicacionController::class, "desactivar"]);
+
+/*ADM COMENTARIO*/
+Route::view('/admin-comentarios', 'adm-comentarios');
+Route::get('/admin-comentarios', [ComentarioController::class, "admicomentario"]);
+Route::post('/admin-comentarios-activar', [ComentarioController::class, "activar"]);
+Route::post('/admin-comentarios-desactivar', [ComentarioController::class, "desactivar"]);

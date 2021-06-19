@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\Publicacion;
 use App\Models\Comentario;
+use App\Models\Reporte;
 use App\Http\Controllers\PublicacionController;
 use App\Http\Controllers\ComentarioController;
 
@@ -89,10 +90,30 @@ class UsuarioController extends Controller
     public function traersesion(){
         $id = session('id');
         $resultadoCom = Comentario::get();
+        $resultadoRe = Reporte::get();
         $resultado = Usuario::where("id_user",$id)->get();
         $usuarios = Usuario::get();
         $resultadoPub = Publicacion::where("usuarios_id_user",$id)->get();
         $id_usuario=Usuario::where("id_user", $id)->get();
-        return view("usuario-sesion", ["resultado"=>$resultado, "id_usuario"=>$id_usuario], ["resultadoPub"=>$resultadoPub, "resultadoCom" => $resultadoCom, "usuarios"=>$usuarios]);
+        return view("usuario-sesion", ["resultado"=>$resultado, "id_usuario"=>$id_usuario, "resultadoRe"=>$resultadoRe], ["resultadoPub"=>$resultadoPub, "resultadoCom" => $resultadoCom, "usuarios"=>$usuarios]);
+    }
+    public function admiuser(){
+        $id = session('id');
+        $resultado = Usuario::get();
+        $resultadoPub = Publicacion::get();
+        $id_usuario=Usuario::where("id_user", $id)->get();
+        return view("adm-usuarios", ["resultado"=>$resultado, "id_usuario"=>$id_usuario], ["resultadoPub"=>$resultadoPub]);
+    }
+    public function desactivar(Request $tabla){
+        $usuario = Usuario::find($tabla->id_user);
+        $usuario->estado_user = 'Inactivo';
+        $usuario->save();
+        return redirect("/admin-usuarios");
+    }
+    public function activar(Request $tabla){
+        $usuario = Usuario::find($tabla->id_user);
+        $usuario->estado_user = 'Activo';
+        $usuario->save();
+        return redirect("/admin-usuarios");
     }
 }

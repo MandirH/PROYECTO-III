@@ -2,37 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c55cd56-4f6e-428c-a5d1-789aaec21bae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ComentarioController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Comentario.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_08_004434_create_comentarios_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/mundo_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/nacion_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/publicacion_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/sex_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ReporteController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Reporte.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_18_152950_create_reportes_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/adm-comentarios.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/adm-publicaciones.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/adm-usuarios.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ComentarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ComentarioController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PublicacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PublicacionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsuarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsuarioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Comentario.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Comentario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Publicacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Publicacion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Usuario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_07_162027_create_usuarios_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_07_162027_create_usuarios_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_07_181736_create_publicacions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_07_181736_create_publicacions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_06_08_004434_create_comentarios_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_06_08_004434_create_comentarios_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/estilos.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/estilos.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/archivo.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/archivo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/iniciar-sesion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/iniciar-sesion.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/perfil-externo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/perfil-externo.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/publicacion-sesion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/publicacion-sesion.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/usuario-sesion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuario-sesion.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +237,16 @@
       <workItem from="1623159951845" duration="18268000" />
       <workItem from="1623250837421" duration="8918000" />
       <workItem from="1623336646723" duration="7012000" />
-      <workItem from="1623420932555" duration="1233000" />
+      <workItem from="1623420932555" duration="6771000" />
+      <workItem from="1623537674891" duration="1897000" />
+      <workItem from="1623619675933" duration="36000" />
+      <workItem from="1623629059847" duration="4378000" />
+      <workItem from="1623722424706" duration="5460000" />
+      <workItem from="1623769300540" duration="1268000" />
+      <workItem from="1623854035407" duration="2349000" />
+      <workItem from="1623874374823" duration="11599000" />
+      <workItem from="1623939974062" duration="19162000" />
+      <workItem from="1624023819499" duration="9192000" />
     </task>
     <servers />
   </component>
@@ -275,8 +272,13 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/layout.blade.php</url>
+          <url>file://$PROJECT_DIR$/resources/views/layout.blade.blade.php</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/routes/web.php</url>
+          <line>46</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
