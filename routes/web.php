@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PublicacionController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\ReporteController;
 use App\Models\Usuario;
 use App\Models\Publicacion;
 use App\Models\Comentario;
+use App\Models\Reporte;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,3 +86,8 @@ Route::view('/admin-comentarios', 'adm-comentarios');
 Route::get('/admin-comentarios', [ComentarioController::class, "admicomentario"]);
 Route::post('/admin-comentarios-activar', [ComentarioController::class, "activar"]);
 Route::post('/admin-comentarios-desactivar', [ComentarioController::class, "desactivar"]);
+
+/*REPORTE*/
+Route::post('/reportar', [ReporteController::class, "registrarRe"]);
+Route::post('/admin-reporte-activar', [ReporteController::class, "activar"]);
+Route::post('/admin-reporte-desactivar', [ReporteController::class, "desactivar"]);

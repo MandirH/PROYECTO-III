@@ -344,6 +344,7 @@ hr{
 }
 .sub_pub_user a{
     color: #fff;
+    display: block;
     text-decoration: none;
 }
 .sub_pub_user a:hover{
@@ -582,6 +583,21 @@ footer{
         display: block;
         text-align: center;
         text-shadow: 0 5px 5px rgba(255, 0, 0, 0.30), 0 5px 6px rgba(255, 0, 0, 0.22);
+    }
+}
+@media screen and (max-width: 500px){
+    .sub_pub_user a{
+        display: contents;
+    }
+    .submit_com_re{
+        float: right;
+        text-transform: uppercase;
+        width: 120px;
+        height: 28px;
+        margin-top: 0px;
+        font-weight: 600;
+        font-family: 'Nunito', sans-serif;
+        background: -webkit-linear-gradient(left, #b34fff, #ff2c4f);
     }
 }
 @media screen and (max-width: 430px){

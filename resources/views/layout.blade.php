@@ -14,46 +14,21 @@
 <div class="header">
     <label for="show-menu" class="show-menu"><div class="icon-menu"></div></label>
     <input type="checkbox" id="show-menu">
-    @foreach($resultado as $usuario)
-        @foreach($id_usuario as $id)
-            @if($id['id_user']==$usuario['id_user'])
-                @if($usuario['cargo_user']=='Usuario')
-                    <ul class="menu">
-                        <li><a href="/usuario">Usuarios</a></li>
-                        <li><a href="/publicaciones">Publicaciones</a></li>
-                        <li><a href="/perfil">Perfil</a></li>
-                    </ul>
-                @else
-                    <ul class="menu_ad">
-                        <li><a href="/admin-usuarios">Usuarios</a></li>
-                        <li><a href="/admin-publicaciones">Publicaciones</a></li>
-                        <li><a href="/admin-comentarios">Comentarios</a></li>
-                        <li><a href="/perfil">Perfil</a></li>
-                    </ul>
-                @endif
-            @else
-                @if(!empty($usuarios))
-                    @foreach($usuarios as $user)
-                        @if($id['id_user']==$user['id_user'])
-                            @if($user['cargo_user']=='Usuario')
-                                <ul class="menu">
-                                    <li><a href="/usuario">Usuarios</a></li>
-                                    <li><a href="/publicaciones">Publicaciones</a></li>
-                                    <li><a href="/perfil">Perfil</a></li>
-                                </ul>
-                            @else
-                                <ul class="menu_ad">
-                                    <li><a href="/admin-usuarios">Usuarios</a></li>
-                                    <li><a href="/admin-publicaciones">Publicaciones</a></li>
-                                    <li><a href="/admin-comentarios">Comentarios</a></li>
-                                    <li><a href="/perfil">Perfil</a></li>
-                                </ul>
-                            @endif
-                        @endif
-                    @endforeach
-                @endif
-            @endif
-        @endforeach
+    @foreach($id_usuario as $id)
+        @if($id['cargo_user']=="Usuario")
+            <ul class="menu">
+                <li><a href="/usuario">Usuarios</a></li>
+                <li><a href="/publicaciones">Publicaciones</a></li>
+                <li><a href="/perfil">Perfil</a></li>
+            </ul>
+        @else
+            <ul class="menu_ad">
+                <li><a href="/admin-usuarios">Usuarios</a></li>
+                <li><a href="/admin-publicaciones">Publicaciones</a></li>
+                <li><a href="/admin-comentarios">Comentarios</a></li>
+                <li><a href="/perfil">Perfil</a></li>
+            </ul>
+        @endif
     @endforeach
 </div>
 <div class="principal">
@@ -75,5 +50,6 @@
 </footer>
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/archivo.js"></script>
+<script src="/js/popup.js"></script>
 </body>
 </html>

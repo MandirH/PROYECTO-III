@@ -130,33 +130,36 @@
                                 <th class='tabla_cuadro'>Publicacion</th>
                                 <th class='tabla_cuadro'>Comentario</th>
                                 <th class='tabla_cuadro'>Contenido</th>
-                                <th class='tabla_cuadro'>&nbsp;</th>
+
                             </tr>
-                            <?php $contador = 0?>
+                            <?php $resultadoRe = collect($resultadoRe)->sortBy('id_re')->reverse()->toArray(); ?>
+                            <?php $contador = 0;?>
                             @foreach($resultadoRe as $reporte)
                                 <?php $contador++ ?>
                                 <tr>
                                     <td class='tabla_celda'>{{$contador}}</td>
-                                    @foreach($resultado as $usuario)
-                                        @if($usuario['id_user']==$reporte['id_usuario_re'])
-                                            <td class='tabla_celda'>{{$usuario['nom_user']}}</td>
-                                        @endif
-                                    @endforeach
+                                    <td class='tabla_celda'>{{$reporte['usuario_re']}}</td>
                                     <td class='tabla_celda'>{{$reporte['autor_re']}}</td>
                                     <td class='tabla_celda'>{{$reporte['publicacion_re']}}</td>
-                                    <td class='tabla_celda_text'>{{$reporte['comentario_re']}}</td>
+                                    <td class='tabla_celda'>
+                                        @if($reporte['comentario_re']=="")
+                                            NA
+                                        @else
+                                            {{$reporte['comentario_re']}}
+                                        @endif
+                                    </td>
                                     <td class='tabla_celda_text'>{{$reporte['texto_re']}}</td>
                                     <td class='tabla_celda-adm'>
-                                        @if($comentario['estado_com']=='Activo')
-                                            <form method='post' action='/admin-comentarios-desactivar'>
+                                        @if($reporte['estado_re']=='Activo')
+                                            <form method='post' action='/admin-reporte-desactivar'>
                                                 @csrf
-                                                <input type='hidden' name='id_com' value='{{$comentario['id_com']}}'>
+                                                <input type='hidden' name='id_re' value='{{$reporte['id_re']}}'>
                                                 <input type='submit' name='submit' class="boton-adm-a" value='Activo'>
                                             </form>
                                         @else
-                                            <form method='post' action='/admin-comentarios-activar'>
+                                            <form method='post' action='/admin-reporte-activar'>
                                                 @csrf
-                                                <input type='hidden' name='id_com' value='{{$comentario['id_com']}}'>
+                                                <input type='hidden' name='id_re' value='{{$reporte['id_re']}}'>
                                                 <input type='submit' name='submit' class="boton-adm-i" value='Inactivo'>
                                             </form>
                                         @endif

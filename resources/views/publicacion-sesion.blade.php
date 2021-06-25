@@ -13,16 +13,54 @@
                <span class="spanCom">{{$errors->first('com')}}</span>
            </div>
         @endif
+        @if(!empty($errors->first('texto')))
+            <div class='contenido_hidden'>
+                <span class="spanCom">{{$errors->first('texto')}}</span>
+            </div>
+        @endif
             <?php $resultadoPub = collect($resultadoPub)->sortBy('id_pub')->reverse()->toArray(); ?>
+            <?php $number = 0;?>
         @foreach($resultadoPub as $publicacion)
+            <?php $number++;?>
             <div class='contenido'>
                 @foreach($resultado as $usuario)
                     @if($usuario["id_user"]==$publicacion["usuarios_id_user"])
                         @foreach($id_usuario as $user)
-                            <h2 class="sub_pub_user"><a href="<?php if($user['id_user']==$usuario['id_user']){echo '/perfil';}else{echo '/usuario/'.$usuario['id_user'];}?>">{{$usuario["nom_user"]}} {{$usuario["ape_user"]}}</a></h2>
+                            <h2 class="sub_pub_user">
+                                <a href="<?php if($user['id_user']==$usuario['id_user']){echo '/perfil';}else{echo '/usuario/'.$usuario['id_user'];}?>">{{$usuario["nom_user"]}} {{$usuario["ape_user"]}}</a>
+                                <button id="btn-abrir-popup{{$number}}" class="submit_com_re">Reportar</button>
+                            </h2>
                         @endforeach
                     @endif
                 @endforeach
+                <!--VENTANA EMERGENTE-->
+                    <div class="overlay" id="overlay{{$number}}">
+                        <div class="popup" id="popup{{$number}}">
+                            <a href="#" id="btn-cerrar-popup{{$number}}" class="btn-cerrar-popup"><i class="fas fa-times">X</i></a>
+                            <h3>REPORTAR</h3><hr>
+                            <h4>Escriba el motivo del reporte.</h4>
+                            <form action="/reportar" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <div class="contenedor-inputs">
+                                    @foreach($id_usuario as $user)
+                                        <input type="hidden" name="usuario" value="{{$user['id_user']}}">
+                                    @endforeach
+                                    @foreach($resultado as $usuario)
+                                        @if($usuario["id_user"]==$publicacion["usuarios_id_user"])
+                                            <input type="hidden" name="autor" value="{{$usuario['nom_user']}}">
+                                        @endif
+                                    @endforeach
+                                    <input type="hidden" name="publicacion" value="{{$publicacion['id_pub']}}">
+                                    @foreach($id_usuario as $user)
+                                        <input type="hidden" name="id_user_re" value="{{$user["id_user"]}}">
+                                    @endforeach
+                                    <input type="text" placeholder="Contenido" name="texto">
+                                        <button type="submit" class="submit_com" name="confirmar_pub">Enviar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                <!--VENTANA EMERGENTE-->
                 <div class='caja_pub'>
                     <h2 class='sub'>{{$publicacion["tipo_pub"]}}</h2><hr>
                     <div class='fech'><h3>{{$publicacion["fecha_pub"]}} {{$publicacion["hora_pub"]}}</h3></div>
